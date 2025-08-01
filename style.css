@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: -2;
+}
+
+.background-opacity {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(138, 81, 252, 0.6);
+  z-index: -1;
+}
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gif-logo-gif {
+  height: 300px;
+}
+.container{
+  background-color: rgba(138, 81, 252, 1);
+  width: 25vw;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+.container-conversor{
+  position: absolute;
+  top: 35%;
+  background-color: rgb(255, 255, 255, 1);
+  width: 22.5vw;
+  height: 60vh;
+  display: flex;
+  border-radius: 20px;
+}
