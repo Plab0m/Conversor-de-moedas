@@ -8,34 +8,70 @@ const ConvertedValue = document.querySelector("#valueResult2");
 const MoedaResult1 = document.querySelector("#moedaResult1");
 const MoedaResult2 = document.querySelector("#moedaResult2");
 
+const moedas = {
+  Dolar: 5.54,
+  Euro: 6.05,
+  Real: 1.0,
+};
+
+const formatacaoMoedas = {
+  Dolar: { locale: "en-US", currency: "USD" },
+  Euro: { locale: "de-DE", currency: "EUR" },
+  Real: { locale: "pt-BR", currency: "BRL" },
+};
+
+function converterParaReal(valor, moedaOrigem) {
+  return valor * (moedas.Real / moedas[moedaOrigem]);
+}
+
+function converterDeReal(valorEmReal, moedaDestino) {
+  return valorEmReal * (moedas[moedaDestino] / moedas.Real);
+}
+
+function converterMoedas(valor, moedaOrigem, moedaDestino) {
+  if (moedaOrigem === moedaDestino) {
+    return valor;
+  }
+
+  const valorEmReal = converterParaReal(valor, moedaOrigem);
+
+  const valorConvertido = converterDeReal(valorEmReal, moedaDestino);
+
+  return valorConvertido;
+}
+
 function Converter() {
-  ConvertFromValue.innerHTML = new Intl.NumberFormat("pt-BR", {
+  const valorOriginal = parseFloat(valorinput.value) || 0;
+  const moedaOrigem = SelectFrom.value;
+  const moedaDestino = SelectTo.value;
+
+  const formatOrigem = formatacaoMoedas[moedaOrigem];
+  ConvertFromValue.innerHTML = new Intl.NumberFormat(formatOrigem.locale, {
     style: "currency",
-    currency: "BRL",
-  }).format(valorinput.value);
+    currency: formatOrigem.currency,
+  }).format(valorOriginal);
 
-  const dolar = 5.54;
-  const euro = 6.05;
-  const real = 1.0;
+  const valorConvertido = converterMoedas(
+    valorOriginal,
+    moedaOrigem,
+    moedaDestino
+  );
 
-  if (SelectTo.value == "Dolar") {
-    ConvertedValue.innerHTML = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(valorinput.value * dolar);
-  }
-  if (SelectTo.value == "Euro") {
-    ConvertedValue.innerHTML = new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-    }).format(valorinput.value * euro);
-  }
+  const formatDestino = formatacaoMoedas[moedaDestino];
+  ConvertedValue.innerHTML = new Intl.NumberFormat(formatDestino.locale, {
+    style: "currency",
+    currency: formatDestino.currency,
+  }).format(valorConvertido);
 }
 
 SelectTo.addEventListener("change", ChangeMoeda);
+SelectFrom.addEventListener("change", ChangeMoeda);
+
 function ChangeMoeda() {
   Converter();
+  MoedaResult1.innerHTML = SelectFrom.value;
   MoedaResult2.innerHTML = SelectTo.value;
+
   const bandeiras = {
     Dolar: "assets/usaBandeira.png",
     Real: "assets/brasilBandeira.png",
