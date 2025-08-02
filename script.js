@@ -25,7 +25,7 @@ function converterParaReal(valor, moedaOrigem) {
 }
 
 function converterDeReal(valorEmReal, moedaDestino) {
-  return valorEmReal * (moedas[moedaDestino] / moedas.Real);
+  return (valorEmReal * moedas[moedaDestino]);
 }
 
 function converterMoedas(valor, moedaOrigem, moedaDestino) {
