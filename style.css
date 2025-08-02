@@ -117,7 +117,7 @@ button:hover {
   transition: background-color 0.4s ease-in-out;
 }
 button:active {
- opacity: 0.8;
+  opacity: 0.8;
 }
 .resultado-alinhamento {
   display: flex;
