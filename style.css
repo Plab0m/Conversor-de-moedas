@@ -164,3 +164,58 @@ button:active {
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 900px) {
+  .gif-logo-gif {
+    height: 10vh;
+    max-height: 120px;
+    position: absolute;
+    top: 0%;
+  }
+  .viewport {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: auto;
+  }
+  .background {
+    display: none;
+  }
+  .background-opacity {
+    background-color: rgba(138, 81, 252, 0.8);
+    box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.1),
+      -60px -60px 60px rgba(62, 168, 209, 0.178) inset;
+  }
+  .container {
+    width: 100vw;
+    height: 100vh;
+    justify-content:center;
+    align-items: center;
+
+  }
+  .container-conversor {
+    position: static;
+    margin: auto;;
+    width: 100vw;
+    height: 80vh;
+    justify-content: center;
+  }
+  .select-moeda1,
+  .select-moeda2,
+  .input-valor,
+  .converter {
+    width: 80%;
+    margin: auto;
+  }
+  .resultado-alinhamento {
+    width: 80%;
+    height: 35%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .seta {
+    transform: rotate(-90deg);
+  }
+}
