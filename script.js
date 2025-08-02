@@ -62,6 +62,10 @@ function Converter() {
     style: "currency",
     currency: formatDestino.currency,
   }).format(valorConvertido);
+   if (valorOriginal <= 0) {
+    valorinput.placeholder = "Valor inválido!";
+    return;
+  }
 }
 
 SelectTo.addEventListener("change", ChangeMoeda);
