@@ -10,7 +10,7 @@ const MoedaResult2 = document.querySelector("#moedaResult2");
 
 const moedas = {
   Dolar: 5.54,
-  Euro: 6.05,
+  Euro: 6.42,
   Real: 1.0,
 };
 
@@ -21,7 +21,7 @@ const formatacaoMoedas = {
 };
 
 function converterParaReal(valor, moedaOrigem) {
-  return valor * (moedas.Real / moedas[moedaOrigem]);
+  return (valor * moedas[moedaOrigem]);
 }
 
 function converterDeReal(valorEmReal, moedaDestino) {
