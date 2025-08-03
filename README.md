@@ -2,6 +2,8 @@
 
 ![Banner do Projeto](https://raw.githubusercontent.com/Plab0m/Conversor-de-moedas/refs/heads/main/assets/Conversor%20de%20moedas.PNG)
 
+https://plab0m.github.io/Conversor-de-moedas/
+
 ## 🚀 Visão Geral
 
 Este é um projeto simples de conversor de moedas desenvolvido com HTML, CSS e JavaScript puro. Ele permite aos usuários converter valores entre Dólar, Euro e Real de forma simples e rápida.
