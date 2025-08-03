@@ -21,11 +21,11 @@ const formatacaoMoedas = {
 };
 
 function converterParaReal(valor, moedaOrigem) {
-  return (valor * moedas[moedaOrigem]);
+  return valor * moedas[moedaOrigem];
 }
 
 function converterDeReal(valorEmReal, moedaDestino) {
-  return (valorEmReal / moedas[moedaDestino]);
+  return valorEmReal / moedas[moedaDestino];
 }
 
 function converterMoedas(valor, moedaOrigem, moedaDestino) {
@@ -57,17 +57,22 @@ function Converter() {
     moedaDestino
   );
 
+  if (valorOriginal <= 0) {
+    valorinput.placeholder = "Valor inválido!";
+    valorinput.classList.add("erro-placeholder");
+    return;
+  }
   const formatDestino = formatacaoMoedas[moedaDestino];
   ConvertedValue.innerHTML = new Intl.NumberFormat(formatDestino.locale, {
     style: "currency",
     currency: formatDestino.currency,
   }).format(valorConvertido);
-   if (valorOriginal <= 0) {
-    valorinput.placeholder = "Valor inválido!";
-    return;
-  }
+  valorinput.classList.remove("erro-placeholder");
+  valorinput.placeholder = "Insira o valor:";
 }
-
+const ButtonConverter = document.querySelector(".converter");
+ButtonConverter.addEventListener("click", Converter);
+ButtonConverter.addEventListener("click", ChangeMoeda);
 SelectTo.addEventListener("change", ChangeMoeda);
 SelectFrom.addEventListener("change", ChangeMoeda);
 
